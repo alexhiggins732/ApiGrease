@@ -1,0 +1,3074 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Document Api",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/ScoringApi"
+    }
+  ],
+  "paths": {
+    "/api/Collections/FromBlob": {
+      "post": {
+        "tags": [
+          "Collection"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyBlobCollectionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyBlobCollectionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyBlobCollectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Collections/FromFileSystem": {
+      "post": {
+        "tags": [
+          "Collection"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyFileSystemCollectionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyFileSystemCollectionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyFileSystemCollectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Collections/FromDms": {
+      "post": {
+        "tags": [
+          "Collection"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyDmsCollectionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyDmsCollectionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyDmsCollectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCollectionResponseApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Patients/{patientId}": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Patients": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "filterPatients",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PatientsFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoIEnumerableApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoIEnumerableApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoIEnumerableApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Patients"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Patients"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/AddScc1Patient": {
+      "post": {
+        "tags": [
+          "Scc1"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_Patients"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_Patients"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_Patients"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_PatientsApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_PatientsApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_PatientsApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/GetScc1PatientById": {
+      "get": {
+        "tags": [
+          "Scc1"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_PatientsApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_PatientsApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_PatientsApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/AddScc1Study": {
+      "post": {
+        "tags": [
+          "Scc1"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_Scoring"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_Scoring"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_Scoring"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_ScoringApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_ScoringApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_ScoringApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/GetScc1StudyById": {
+      "get": {
+        "tags": [
+          "Scc1"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_ScoringApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_ScoringApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_ScoringApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/AddScc1StudyFile": {
+      "post": {
+        "tags": [
+          "Scc1"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_StudyFiles"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_StudyFiles"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tbl_StudyFiles"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/GetScc1StudyFileById": {
+      "get": {
+        "tags": [
+          "Scc1"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/GetScc1StudyFileByStudyId": {
+      "get": {
+        "tags": [
+          "Scc1"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Scc1/UpdateScc1EnsoStatusByStudyId": {
+      "put": {
+        "tags": [
+          "Scc1"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnsoStatusUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnsoStatusUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnsoStatusUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tbl_StudyFilesApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Studies/{studyId}": {
+      "get": {
+        "tags": [
+          "Studies"
+        ],
+        "parameters": [
+          {
+            "name": "studyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Studies"
+        ],
+        "parameters": [
+          {
+            "name": "studyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Studies": {
+      "get": {
+        "tags": [
+          "Studies"
+        ],
+        "parameters": [
+          {
+            "name": "filterStudies",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/StudiesFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoIEnumerableApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoIEnumerableApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoIEnumerableApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Studies"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Studies"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudyRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudyRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Studies/{studyId}/EnsoStudyId": {
+      "get": {
+        "tags": [
+          "Studies"
+        ],
+        "parameters": [
+          {
+            "name": "studyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Studies/{studyId}/EnzoLink": {
+      "post": {
+        "tags": [
+          "Studies"
+        ],
+        "parameters": [
+          {
+            "name": "studyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetEnzoLinkRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetEnzoLinkRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetEnzoLinkRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tenants/{tenantId}": {
+      "get": {
+        "tags": [
+          "Tenants"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tenants"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tenants": {
+      "get": {
+        "tags": [
+          "Tenants"
+        ],
+        "parameters": [
+          {
+            "name": "filterTenants",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/TenantFilter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoIEnumerableApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoIEnumerableApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoIEnumerableApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tenants"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tenants"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTenantRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTenantRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTenantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/test": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/test/authorized": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Blob": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BooleanApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "boolean"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CollectionSoftware": {
+        "enum": [
+          "Unknown",
+          "RemLogic",
+          "Sandman",
+          "WatchPAT",
+          "Nox",
+          "Sleepware G3"
+        ],
+        "type": "string"
+      },
+      "CreateCollectionResponse": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "CreateCollectionResponseApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateCollectionResponse"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePatientRequest": {
+        "type": "object",
+        "properties": {
+          "patientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStudyBlobCollectionRequest": {
+        "type": "object",
+        "properties": {
+          "study": {
+            "$ref": "#/components/schemas/CreateStudyRequest"
+          },
+          "collectionFolderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "blob": {
+            "$ref": "#/components/schemas/Blob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStudyDmsCollectionRequest": {
+        "type": "object",
+        "properties": {
+          "study": {
+            "$ref": "#/components/schemas/CreateStudyRequest"
+          },
+          "collectionFolderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualPath": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStudyFileSystemCollectionRequest": {
+        "type": "object",
+        "properties": {
+          "study": {
+            "$ref": "#/components/schemas/CreateStudyRequest"
+          },
+          "collectionFolderName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStudyRequest": {
+        "type": "object",
+        "properties": {
+          "studyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/CreateTenantRequest"
+          },
+          "patient": {
+            "$ref": "#/components/schemas/CreatePatientRequest"
+          },
+          "studyType": {
+            "$ref": "#/components/schemas/StudyType"
+          },
+          "collectionSoftware": {
+            "$ref": "#/components/schemas/CollectionSoftware"
+          },
+          "chartFolderName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenantRequest": {
+        "type": "object",
+        "properties": {
+          "labName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteFolder": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnsoStatusUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "ensoStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "ensoStudyId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Gender": {
+        "enum": [
+          "male",
+          "female",
+          "other"
+        ],
+        "type": "string"
+      },
+      "GetEnzoLinkRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatientDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatientDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/PatientDto"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatientDtoIEnumerableApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatientDto"
+            },
+            "nullable": true
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatientsFilter": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "StringApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "nullable": true
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StudiesFilter": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "StudyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          "patient": {
+            "$ref": "#/components/schemas/PatientDto"
+          },
+          "studyType": {
+            "$ref": "#/components/schemas/StudyType"
+          },
+          "collectionSoftware": {
+            "$ref": "#/components/schemas/CollectionSoftware"
+          },
+          "chartFolderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "ensoStudyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StudyDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/StudyDto"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StudyDtoIEnumerableApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StudyDto"
+            },
+            "nullable": true
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StudyType": {
+        "enum": [
+          "Unknown",
+          "Psg",
+          "Hst",
+          "Mslt"
+        ],
+        "type": "string"
+      },
+      "Tbl_Patients": {
+        "type": "object",
+        "properties": {
+          "patient_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "first_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "cell_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "work_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "work_Phone_Ext": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_Address_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_Address_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_City": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_State": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_Zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "home_Township": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "e_Mail_Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "source_ID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_Location_Site": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_DOB": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "patient_Place_Of_Birth": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Sex": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_Weight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_Marital_Status": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Drug_Allergies": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Military_Service": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Rank": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Retirement_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "patient_Medicare_Last_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "patient_Medicare_Last_Date_To": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "patient_Campus_Elig_From": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "patient_Campus_Elig_To": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "patient_Religion": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Race": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Relation": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Home_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Cell_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Work_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Work_Ext": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Address_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Address_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_City_State_Zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_DOB": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "contact_SSN": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Full_Time": {
+            "type": "boolean"
+          },
+          "employer_Part_Time": {
+            "type": "boolean"
+          },
+          "employer_Manager_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Manager_Phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Manager_Ext": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Address_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Address_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_City_State_Zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Best_Time_To_Call": {
+            "type": "string",
+            "nullable": true
+          },
+          "patient_Rating": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "email_Requested": {
+            "type": "boolean"
+          },
+          "employment_Student_FullTime": {
+            "type": "boolean"
+          },
+          "employment_Student_PartTime": {
+            "type": "boolean"
+          },
+          "employment_Retired": {
+            "type": "boolean"
+          },
+          "contact_BuildingOrFirmName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_City": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_State": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_BuildingOrFirmName": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_City": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_State": {
+            "type": "string",
+            "nullable": true
+          },
+          "employer_Zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_Address_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_Address_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_City": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_State": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_Zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Employer_BuildingOrFirmName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mothersMaidenName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fathersFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "emergencyContactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "emergencyContactRelationship": {
+            "type": "string",
+            "nullable": true
+          },
+          "emergencyContactPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "spousesRetirementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "howDidYouHearAboutUs": {
+            "type": "string",
+            "nullable": true
+          },
+          "advanceDirective": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_Ethnicity": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPregnant": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "usingTransport": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "nonAmbulatory": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "tracheotomy": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "medicallyComplex": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasCpapAtHome": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "allowTextNotifications": {
+            "type": "boolean"
+          },
+          "isHospitalEmployee": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tbl_PatientsApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Tbl_Patients"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tbl_Scoring": {
+        "type": "object",
+        "properties": {
+          "study_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "study_Num": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_ID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "study_Type_ID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "study_Status_ID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tech": {
+            "type": "string",
+            "nullable": true
+          },
+          "scorer": {
+            "type": "string",
+            "nullable": true
+          },
+          "disk": {
+            "type": "string",
+            "nullable": true
+          },
+          "x_Score_CD": {
+            "type": "string",
+            "nullable": true
+          },
+          "performed": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "performed_Time": {
+            "type": "string",
+            "nullable": true
+          },
+          "scored": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "tO_DR": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "read": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "receiveD_IN_SCORING": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "received_Interp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mask": {
+            "type": "string",
+            "nullable": true
+          },
+          "sae": {
+            "type": "string",
+            "nullable": true
+          },
+          "site": {
+            "type": "string",
+            "nullable": true
+          },
+          "primary2Doctor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "referring2Doctor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "interpretting2Doctor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_Height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "patient_Weight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "primary2Insurance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "secondary2Insurance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "reg_Path": {
+            "type": "string",
+            "nullable": true
+          },
+          "reg_File": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmed_Ind": {
+            "type": "boolean"
+          },
+          "confirmed_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "confirmed_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmed_Tech_Ind": {
+            "type": "boolean"
+          },
+          "confirmed_Tech_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "confirmed_Tech_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "chart": {
+            "type": "boolean"
+          },
+          "chart_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "chart_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "chart_Sent": {
+            "type": "boolean"
+          },
+          "chart_Sent_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "chart_Sent_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "eFax": {
+            "type": "boolean"
+          },
+          "eFax_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "eFax_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailed": {
+            "type": "boolean"
+          },
+          "mailed_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mailed_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "received_In_Sleepcare": {
+            "type": "boolean"
+          },
+          "received_In_Sleepcare_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "received_In_Sleepcare_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "scored_Ind": {
+            "type": "boolean"
+          },
+          "scored_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "scored_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "read_Ind": {
+            "type": "boolean"
+          },
+          "read_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "read_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "interp_Recd_Ind": {
+            "type": "boolean"
+          },
+          "interp_Recd_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "interp_Recd_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "billed_Ind": {
+            "type": "boolean"
+          },
+          "billed_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "billed_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "bill_Sent_Ind": {
+            "type": "boolean"
+          },
+          "bill_Sent_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bill_Sent_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "scoring_Review": {
+            "type": "boolean"
+          },
+          "scoring_Review_Done": {
+            "type": "boolean"
+          },
+          "scoring_Review_Date": {
+            "type": "string",
+            "nullable": true
+          },
+          "doctor_Review": {
+            "type": "boolean"
+          },
+          "doctor_Review_Done": {
+            "type": "boolean"
+          },
+          "doctor_Review_Date": {
+            "type": "string",
+            "nullable": true
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "study_Notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "training_tech_ID": {
+            "type": "string",
+            "nullable": true
+          },
+          "medical_Records_No": {
+            "type": "string",
+            "nullable": true
+          },
+          "email_Status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "email_Sent_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "study_Completed": {
+            "type": "boolean"
+          },
+          "study_Completed_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "study_Completed_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "study_Questionable": {
+            "type": "boolean"
+          },
+          "study_Questionable_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "study_Questionable_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "study_Rejected": {
+            "type": "boolean"
+          },
+          "study_Rejected_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "study_Rejected_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "verified_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "verified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modifier": {
+            "type": "boolean"
+          },
+          "coS_Doctor": {
+            "type": "boolean"
+          },
+          "coS_Doctor_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "coS_Doctor_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "comments_Review": {
+            "type": "boolean"
+          },
+          "comments_Review_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "comments_Review_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "current_Referral_ID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "cancelReviewDoctor_Ind": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "cancelReviewDoctor_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cancelReviewDoctor_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "forAssignment_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "forAssignment": {
+            "type": "boolean"
+          },
+          "stat_Score": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "stat_Score_By": {
+            "type": "string",
+            "nullable": true
+          },
+          "stat_Score_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "admittingDiagnosis": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secondaryDiagnosis": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tertiaryDiagnosis": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stat_Score_Reason": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "equipmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialistConsultVisitDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "specialistConsultVisitDateUpdatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "specialistConsultVisitDateUpdatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isPregnant": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "performedScheduleDateID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "locationID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requestOxygen": {
+            "type": "boolean"
+          },
+          "requestRecliner": {
+            "type": "boolean"
+          },
+          "requestTechGender": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requestSpecificTech": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requestGeneralFacility": {
+            "type": "boolean"
+          },
+          "perioperative": {
+            "type": "boolean"
+          },
+          "surgery_Date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "requestSpanishSpeakingTech": {
+            "type": "boolean"
+          },
+          "movability": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "requestCrib": {
+            "type": "boolean"
+          },
+          "usingTransport": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ambulatory": {
+            "type": "boolean"
+          },
+          "tracheotomy": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "medicallyComplex": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "collectionEquipmentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "requestExclusiveTech": {
+            "type": "boolean"
+          },
+          "nonAmbulatory": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasCpapAtHome": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "requestCot": {
+            "type": "boolean"
+          },
+          "visitNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "medRecUpdated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "medRecUpdatedID": {
+            "type": "string",
+            "nullable": true
+          },
+          "bundledOrder_ID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bundledOrderItem_ID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isBundledOrder": {
+            "type": "boolean"
+          },
+          "preferredLanguage": {
+            "type": "string",
+            "nullable": true
+          },
+          "isTranslatorNeeded": {
+            "type": "boolean"
+          },
+          "patientDisabilityDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "guarantorsName": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorsAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorsAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorsCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorsState": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorsZip": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorsPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "isHospitalEmployee": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tbl_ScoringApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Tbl_Scoring"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tbl_StudyFiles": {
+        "type": "object",
+        "properties": {
+          "fileID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "study_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "serverPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fileType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "processID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transferAttempts": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "machineName": {
+            "type": "string",
+            "nullable": true
+          },
+          "failureNotification": {
+            "type": "boolean"
+          },
+          "fileSignature": {
+            "type": "string",
+            "nullable": true
+          },
+          "marker": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ensoStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "ensoStudyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ensoState": {
+            "type": "string",
+            "nullable": true
+          },
+          "ensoMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "srcStudyId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tbl_StudyFilesApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Tbl_StudyFiles"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenantDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "labName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteFolder": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenantDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenantDtoIEnumerableApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TenantDto"
+            },
+            "nullable": true
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenantFilter": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UpdatePatientRequest": {
+        "type": "object",
+        "properties": {
+          "patientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateStudyRequest": {
+        "type": "object",
+        "properties": {
+          "studyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/UpdateTenantRequest"
+          },
+          "patient": {
+            "$ref": "#/components/schemas/UpdatePatientRequest"
+          },
+          "studyType": {
+            "$ref": "#/components/schemas/StudyType"
+          },
+          "collectionSoftware": {
+            "$ref": "#/components/schemas/CollectionSoftware"
+          },
+          "chartFolderName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTenantRequest": {
+        "type": "object",
+        "properties": {
+          "labName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteFolder": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
